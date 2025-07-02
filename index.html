@@ -21,7 +21,7 @@ Instructions : Télécharger tous les fichiers, y compris le dossier assets. Ouv
 <body>
   <header>
     <h1>History of AI</h1>
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Navigation principale">
       <ul>
         <li><a href="#date1956">1956</a></li>
         <li><a href="#date1966">1966</a></li>
@@ -32,55 +32,64 @@ Instructions : Télécharger tous les fichiers, y compris le dossier assets. Ouv
         <li><a href="#date2024">2024</a></li>
       </ul>
     </nav>
-    <button id="theme-toggle">Mode Sombre</button>
+    <div class="controls">
+      <select id="filter" aria-label="Filtrer par période">
+        <option value="all">Toutes les époques</option>
+        <option value="before2000">Avant 2000</option>
+        <option value="2000-2020">2000–2020</option>
+        <option value="after2020">Après 2020</option>
+      </select>
+      <button id="tour-btn" aria-label="Lancer la visite guidée">Démarrer la visite guidée</button>
+      <button id="theme-toggle" aria-label="Basculer le thème">Mode Sombre</button>
+    </div>
   </header>
 
   <main>
     <section class="timeline">
       <!-- Événement 1956 -->
-      <article id="date1956" class="event">
+      <article id="date1956" class="event" data-year="1956">
         <h2>1956 - Conférence de Dartmouth</h2>
         <img src="assets/1956.jpg" alt="Conférence de Dartmouth">
         <p>Cette conférence marque la naissance officielle de l’intelligence artificielle comme domaine de recherche.</p>
       </article>
 
       <!-- Événement 1966 -->
-      <article id="date1966" class="event">
+      <article id="date1966" class="event" data-year="1966">
         <h2>1966 - ELIZA</h2>
         <img src="assets/eliza.png" alt="ELIZA chatbot">
         <p>ELIZA est le premier programme simulant une conversation humaine, conçu par Joseph Weizenbaum.</p>
       </article>
 
       <!-- Événement 1997 -->
-      <article id="date1997" class="event">
+      <article id="date1997" class="event" data-year="1997">
         <h2>1997 - Deep Blue</h2>
         <img src="assets/deepblue.jpg" alt="Deep Blue bat Kasparov">
         <p>L’ordinateur Deep Blue d’IBM bat le champion du monde d’échecs Garry Kasparov.</p>
       </article>
 
       <!-- Événement 2012 -->
-      <article id="date2012" class="event">
+      <article id="date2012" class="event" data-year="2012">
         <h2>2012 - AlexNet</h2>
         <img src="assets/alexnet.jpg" alt="AlexNet gagne ILSVRC">
         <p>AlexNet remporte la compétition ImageNet, relançant l’intérêt pour le deep learning.</p>
       </article>
 
       <!-- Événement 2022 -->
-      <article id="date2022" class="event">
+      <article id="date2022" class="event" data-year="2022">
         <h2>2022 - ChatGPT</h2>
         <img src="assets/chatgpt.jpg" alt="Lancement de ChatGPT">
         <p>OpenAI lance ChatGPT, popularisant massivement les modèles de langage génératif.</p>
       </article>
 
       <!-- Événement 2023 -->
-      <article id="date2023" class="event">
+      <article id="date2023" class="event" data-year="2023">
         <h2>2023 - Agents open source</h2>
         <img src="assets/agent.jpg" alt="Agents IA">
         <p>Explosion des agents IA autonomes open source comme Auto-GPT ou BabyAGI.</p>
       </article>
 
       <!-- Événement 2024 -->
-      <article id="date2024" class="event">
+      <article id="date2024" class="event" data-year="2024">
         <h2>2024 - Fusion IA multimodale</h2>
         <img src="assets/multimodal.jpg" alt="IA multimodale">
         <p>Les modèles IA combinent texte, image, audio et vidéo dans des capacités unifiées.</p>
@@ -90,13 +99,13 @@ Instructions : Télécharger tous les fichiers, y compris le dossier assets. Ouv
     <section class="faq">
       <h2>FAQ</h2>
       <div class="accordion">
-        <button class="accordion-btn">Qu'est-ce que l'intelligence artificielle ?</button>
+        <button class="accordion-btn" aria-expanded="false">Qu'est-ce que l'intelligence artificielle ?</button>
         <div class="accordion-content">L’IA désigne les systèmes capables d’imiter certaines fonctions cognitives humaines.</div>
 
-        <button class="accordion-btn">Pourquoi 1956 est une date importante ?</button>
+        <button class="accordion-btn" aria-expanded="false">Pourquoi 1956 est une date importante ?</button>
         <div class="accordion-content">Car elle marque le début officiel de la recherche IA lors de la conférence de Dartmouth.</div>
 
-        <button class="accordion-btn">Quels sont les risques de l’IA ?</button>
+        <button class="accordion-btn" aria-expanded="false">Quels sont les risques de l’IA ?</button>
         <div class="accordion-content">Ils incluent les biais algorithmiques, la désinformation, ou la perte de contrôle sur des systèmes autonomes.</div>
       </div>
     </section>
@@ -109,6 +118,8 @@ Instructions : Télécharger tous les fichiers, y compris le dossier assets. Ouv
         <li><a href="https://www.youtube.com/watch?v=5qap5aO4i9A" target="_blank">Vidéo explicative IA</a></li>
       </ul>
     </section>
+    <div id="tour-info" aria-live="polite" class="hidden"></div>
+    <button id="back-to-top" aria-label="Retour en haut">↑</button>
   </main>
 
   <footer>
